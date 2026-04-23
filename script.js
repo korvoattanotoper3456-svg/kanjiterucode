@@ -8,6 +8,7 @@ const scrollTopButton = document.querySelector(".scroll-top");
 const equalizerBars = [...document.querySelectorAll(".equalizer span")];
 const revealNodes = [...document.querySelectorAll("[data-reveal]")];
 const animatedTitle = "kanjiteru";
+const titleCursor = " _";
 let titleIndex = 0;
 let deletingTitle = false;
 
@@ -85,7 +86,7 @@ scrollTopButton?.addEventListener("click", () => {
 const animateDocumentTitle = () => {
   if (!deletingTitle) {
     titleIndex += 1;
-    document.title = animatedTitle.slice(0, titleIndex) || " ";
+    document.title = `${animatedTitle.slice(0, titleIndex)}${titleCursor}`;
 
     if (titleIndex === animatedTitle.length) {
       deletingTitle = true;
@@ -98,7 +99,8 @@ const animateDocumentTitle = () => {
   }
 
   titleIndex -= 1;
-  document.title = animatedTitle.slice(0, Math.max(titleIndex, 0)) || " ";
+  const nextTitle = animatedTitle.slice(0, Math.max(titleIndex, 0));
+  document.title = nextTitle ? `${nextTitle}${titleCursor}` : `${animatedTitle[0]}${titleCursor}`;
 
   if (titleIndex === 0) {
     deletingTitle = false;
@@ -109,7 +111,7 @@ const animateDocumentTitle = () => {
   window.setTimeout(animateDocumentTitle, 90);
 };
 
-document.title = " ";
+document.title = `k${titleCursor}`;
 window.setTimeout(animateDocumentTitle, 700);
 
 const observer = new IntersectionObserver(
