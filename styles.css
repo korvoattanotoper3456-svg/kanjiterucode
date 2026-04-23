@@ -445,10 +445,37 @@ h2 {
     border-color 180ms ease;
 }
 
+.link-tile__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(135deg, rgba(156, 242, 214, 0.12), rgba(126, 137, 255, 0.1)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.link-tile__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text);
+  opacity: 0.95;
+}
+
 .link-tile--accent {
   background:
     linear-gradient(135deg, rgba(156, 242, 214, 0.12), rgba(126, 137, 255, 0.08)),
     var(--surface-strong);
+}
+
+.link-tile--accent .link-tile__icon {
+  background:
+    linear-gradient(135deg, rgba(156, 242, 214, 0.2), rgba(126, 137, 255, 0.16)),
+    rgba(255, 255, 255, 0.04);
 }
 
 .link-tile:hover {
