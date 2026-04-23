@@ -241,6 +241,7 @@ h2 {
 }
 
 .lead,
+.offer-note,
 .identity-line__meta,
 .stat-card span,
 .link-tile small,
@@ -254,6 +255,16 @@ h2 {
   max-width: 690px;
   font-size: 1.07rem;
   line-height: 1.78;
+}
+
+.offer-note {
+  max-width: 620px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(156, 242, 214, 0.18);
+  border-radius: 18px;
+  background: rgba(156, 242, 214, 0.07);
+  line-height: 1.7;
 }
 
 .cta-row {
