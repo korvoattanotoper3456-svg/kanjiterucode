@@ -7,6 +7,9 @@ const preloader = document.querySelector(".preloader");
 const scrollTopButton = document.querySelector(".scroll-top");
 const equalizerBars = [...document.querySelectorAll(".equalizer span")];
 const revealNodes = [...document.querySelectorAll("[data-reveal]")];
+const animatedTitle = "kanjiteru";
+let titleIndex = 0;
+let deletingTitle = false;
 
 const storedTheme = window.localStorage.getItem("bebra-theme");
 if (storedTheme) {
@@ -78,6 +81,36 @@ window.setTimeout(hidePreloader, 2200);
 scrollTopButton?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+const animateDocumentTitle = () => {
+  if (!deletingTitle) {
+    titleIndex += 1;
+    document.title = animatedTitle.slice(0, titleIndex) || " ";
+
+    if (titleIndex === animatedTitle.length) {
+      deletingTitle = true;
+      window.setTimeout(animateDocumentTitle, 1200);
+      return;
+    }
+
+    window.setTimeout(animateDocumentTitle, 160);
+    return;
+  }
+
+  titleIndex -= 1;
+  document.title = animatedTitle.slice(0, Math.max(titleIndex, 0)) || " ";
+
+  if (titleIndex === 0) {
+    deletingTitle = false;
+    window.setTimeout(animateDocumentTitle, 320);
+    return;
+  }
+
+  window.setTimeout(animateDocumentTitle, 90);
+};
+
+document.title = " ";
+window.setTimeout(animateDocumentTitle, 700);
 
 const observer = new IntersectionObserver(
   (entries) => {
