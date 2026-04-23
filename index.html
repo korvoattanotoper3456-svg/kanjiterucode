@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kanjiteru</title>
+    <meta
+      name="description"
+      content="Premium cinematic personal site for kanjiteru with motion, music, and video atmosphere."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__core"></div>
+      <p class="preloader__label">loading kanjiteru scene</p>
+    </div>
+
+    <video
+      class="background-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="./background-video.mp4"
+    >
+      <source src="./background-video.mp4" type="video/mp4" />
+    </video>
+
+    <audio class="ambient-audio" preload="metadata" loop>
+      <source src="./ambient-track.m4a" type="audio/mp4" />
+    </audio>
+
+    <div class="video-tint"></div>
+    <div class="video-grid"></div>
+    <div class="video-glow"></div>
+    <div class="grain"></div>
+
+    <main class="page-shell">
+      <section class="premium-card" data-reveal>
+        <div class="premium-card__head">
+          <span class="pill">kanjiteru</span>
+          <span class="pill pill--ghost">cinematic profile</span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">premium entrance</p>
+            <h1>
+              Личный сайт, который ощущается
+              <span class="gradient-text">как интро к персонажу</span>
+            </h1>
+            <p class="lead">
+              Видео, музыка, атмосфера и чистая подача контактов без дешевого
+              шаблонного фона. Это не просто визитка, а аккуратно собранная
+              цифровая сцена под твой ник.
+            </p>
+
+            <div class="cta-row">
+              <a class="cta cta--solid" href="https://t.me/kanjiteru" target="_blank" rel="noreferrer">
+                написать в telegram
+              </a>
+              <button class="cta cta--ghost audio-toggle" type="button">
+                включить музыку
+              </button>
+            </div>
+
+            <div class="ticker" aria-hidden="true">
+              <div class="ticker__track">
+                <span>kanjiteru</span>
+                <span>premium site</span>
+                <span>visual identity</span>
+                <span>music enabled</span>
+                <span>contact fast</span>
+                <span>kanjiteru</span>
+                <span>premium site</span>
+                <span>visual identity</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-panel" data-reveal>
+            <div class="identity-line">
+              <span class="identity-line__avatar">K</span>
+              <div>
+                <p class="identity-line__name">kanjiteru</p>
+                <p class="identity-line__meta">scripts • visuals • experiments</p>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card">
+                <span>presence</span>
+                <strong>online / active</strong>
+              </article>
+              <article class="stat-card">
+                <span>style</span>
+                <strong>cinematic card</strong>
+              </article>
+              <article class="stat-card">
+                <span>target domain</span>
+                <strong>kanjiteru-card.pages.dev</strong>
+              </article>
+            </div>
+
+            <div class="now-playing">
+              <div>
+                <p class="now-playing__label">now playing</p>
+                <strong>snafu ft. weirdo girl</strong>
+              </div>
+              <div class="equalizer" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="floating-band" data-reveal>
+          <article class="float-card">
+            <span>contact</span>
+            <strong>@kanjiteru</strong>
+          </article>
+          <article class="float-card">
+            <span>discord</span>
+            <strong>rq37</strong>
+          </article>
+          <article class="float-card">
+            <span>github</span>
+            <strong>kanjiteru</strong>
+          </article>
+        </section>
+
+        <section class="link-grid" data-reveal>
+          <a class="link-tile link-tile--accent" href="https://t.me/kanjiteru" target="_blank" rel="noreferrer">
+            <span class="link-tile__label">Telegram</span>
+            <strong>@kanjiteru</strong>
+            <small>главный быстрый контакт</small>
+          </a>
+
+          <a class="link-tile" href="https://discord.com/users/rq37" target="_blank" rel="noreferrer">
+            <span class="link-tile__label">Discord</span>
+            <strong>rq37</strong>
+            <small>если удобнее писать туда</small>
+          </a>
+
+          <a class="link-tile" href="https://github.com/kanjiteru" target="_blank" rel="noreferrer">
+            <span class="link-tile__label">GitHub</span>
+            <strong>github.com/kanjiteru</strong>
+            <small>репы, код и будущие штуки</small>
+          </a>
+        </section>
+
+        <section class="feature-strip" data-reveal>
+          <article class="feature-card">
+            <p class="eyebrow">music</p>
+            <h2>Музыка включается одним нажатием и задает настроение всей сцене.</h2>
+            <p>
+              Браузеры блокируют автозапуск звука, поэтому трек запускается
+              осознанно. Как только включишь, сайт начинает ощущаться совсем иначе.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <p class="eyebrow">motion</p>
+            <h2>Видео, свечение, шум и бегущая строка делают экран живым.</h2>
+            <p>
+              Я оставил интерфейс чистым, чтобы медиа не мешали контактам, а
+              наоборот работали на вау-эффект.
+            </p>
+          </article>
+        </section>
+
+        <footer class="premium-footer" data-reveal>
+          <p class="status-line">
+            best free public route:
+            <span>pages.dev</span>
+          </p>
+          <div class="footer-actions">
+            <button class="theme-toggle" type="button">сменить тон</button>
+            <button class="cta cta--ghost scroll-top" type="button">наверх</button>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

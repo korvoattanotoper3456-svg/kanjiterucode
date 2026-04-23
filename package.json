@@ -1,0 +1,10 @@
+{
+  "name": "kanjiteru-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static personal site for free hosting",
+  "scripts": {
+    "preview": "npx http-server . -p 4173 -c-1",
+    "deploy:cloudflare": "wrangler pages deploy . --project-name kanjiteru-site"
+  }
+}
