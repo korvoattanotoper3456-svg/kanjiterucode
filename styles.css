@@ -258,6 +258,7 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  overflow-wrap: anywhere;
 }
 
 h2 {
