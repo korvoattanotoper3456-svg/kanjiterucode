@@ -261,6 +261,12 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.gradient-text--small {
+  max-width: 760px;
+  font-size: 0.48em;
+  line-height: 1.2;
+}
+
 h2 {
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   line-height: 1.12;
