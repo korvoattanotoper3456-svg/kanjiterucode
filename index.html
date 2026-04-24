@@ -93,6 +93,9 @@
               <a class="cta cta--solid" href="https://t.me/kanjiteru" target="_blank" rel="noreferrer">
                 написать в telegram
               </a>
+              <a class="cta cta--outline" href="#osint-cases">
+                OSINT cases
+              </a>
               <button class="cta cta--ghost audio-toggle" type="button">
                 включить музыку
               </button>
@@ -199,6 +202,102 @@
             <strong>kanjiterucode.pages.dev</strong>
             <small>основной публичный адрес сайта</small>
           </a>
+        </section>
+
+        <section class="osint-section" id="osint-cases" data-reveal>
+          <div class="section-head">
+            <p class="eyebrow">case builder</p>
+            <h2>OSINT-кейсы с картой связей</h2>
+            <p>
+              Красивый формат для публичных расследований: сущности, связи, доказательства, таймлайн и аккуратные выводы без слива личных данных.
+            </p>
+          </div>
+
+          <div class="osint-layout">
+            <div class="graph-stage" aria-label="Пример карты связей для OSINT-кейса">
+              <svg class="case-graph" viewBox="0 0 740 440" role="img" aria-labelledby="case-graph-title">
+                <title id="case-graph-title">Карта связей OSINT-кейса</title>
+                <defs>
+                  <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path class="graph-link graph-link--blue" d="M122 326 C252 310 273 219 361 207" />
+                <path class="graph-link" d="M361 207 C427 144 491 96 578 92" />
+                <path class="graph-link" d="M361 207 C459 204 514 256 616 248" />
+                <path class="graph-link graph-link--gold" d="M246 114 C331 89 438 85 578 92" />
+                <path class="graph-link graph-link--gold" d="M246 114 C301 190 438 240 616 248" />
+                <path class="graph-link" d="M578 92 C611 137 627 184 616 248" />
+                <path class="graph-link graph-link--blue" d="M616 248 C615 305 635 357 676 402" />
+                <path class="graph-link graph-link--gold" d="M246 114 C233 177 275 220 361 207" />
+
+                <g class="graph-node graph-node--subject" transform="translate(616 248)">
+                  <circle r="17" />
+                  <text x="24" y="5">subject</text>
+                </g>
+                <g class="graph-node" transform="translate(361 207)">
+                  <circle r="19" />
+                  <text x="25" y="5">@alias</text>
+                </g>
+                <g class="graph-node graph-node--gold" transform="translate(246 114)">
+                  <circle r="17" />
+                  <text x="24" y="5">channel</text>
+                </g>
+                <g class="graph-node" transform="translate(578 92)">
+                  <circle r="18" />
+                  <text x="25" y="5">chat</text>
+                </g>
+                <g class="graph-node" transform="translate(122 326)">
+                  <circle r="18" />
+                  <text x="25" y="5">evidence</text>
+                </g>
+                <g class="graph-node graph-node--gold" transform="translate(676 402)">
+                  <circle r="16" />
+                  <text x="23" y="5">timeline</text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="case-board">
+              <article class="case-card">
+                <span>01</span>
+                <strong>Сущности</strong>
+                <p>Аккаунты, каналы, ники, аватары, ссылки и публичные идентификаторы.</p>
+              </article>
+              <article class="case-card">
+                <span>02</span>
+                <strong>Связи</strong>
+                <p>Кто с чем связан, чем подтверждено и какой уровень уверенности.</p>
+              </article>
+              <article class="case-card">
+                <span>03</span>
+                <strong>Доказательства</strong>
+                <p>Скрины, даты, ссылки, контекст сообщений и короткие выводы без натяжек.</p>
+              </article>
+              <article class="case-card">
+                <span>04</span>
+                <strong>Финальный отчет</strong>
+                <p>Готовая структура для публикации кейса или переноса в Graph Commons / Kumu.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="case-template">
+            <div>
+              <p class="eyebrow">export template</p>
+              <h2>CSV для карты</h2>
+              <p>Можно заменить примеры на свои сущности и импортировать в визуализатор связей.</p>
+            </div>
+            <pre><code>Source,Target,Relation,Confidence,Evidence
+@subject,private_channel,associated_resource,medium,A1
+@subject,@alias,possible_alias,medium,A2
+private_channel,chat,linked_space,low,A3
+@alias,evidence_pack,mentioned_in,high,A4</code></pre>
+          </div>
         </section>
 
         <footer class="premium-footer" data-reveal>

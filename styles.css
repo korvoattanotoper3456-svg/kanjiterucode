@@ -171,6 +171,8 @@ body::-webkit-scrollbar {
 .feature-strip,
 .cta-row,
 .floating-band,
+.osint-layout,
+.case-board,
 .footer-actions {
   display: grid;
   gap: 16px;
@@ -211,6 +213,7 @@ body::-webkit-scrollbar {
 .hero-panel,
 .floating-band,
 .link-grid,
+.osint-section,
 .premium-footer,
 .stats-grid,
 .ticker,
@@ -279,6 +282,9 @@ h2 {
 .stat-card span,
 .link-tile small,
 .feature-card p,
+.section-head p,
+.case-card p,
+.case-template p,
 .premium-footer p,
 .float-card span {
   color: var(--muted);
@@ -301,7 +307,8 @@ h2 {
 }
 
 .cta-row {
-  grid-template-columns: repeat(2, max-content);
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 28px;
 }
 
@@ -333,6 +340,11 @@ h2 {
   background: var(--text);
   color: var(--bg);
   border-color: transparent;
+}
+
+.cta--outline {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .cta--ghost.is-active {
@@ -370,6 +382,9 @@ h2 {
 .link-tile,
 .feature-card,
 .float-card,
+.graph-stage,
+.case-card,
+.case-template,
 .now-playing {
   background: var(--surface-strong);
   border: 1px solid var(--line);
@@ -541,6 +556,155 @@ h2 {
   line-height: 1.72;
 }
 
+.osint-section {
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  max-width: 780px;
+  margin-bottom: 18px;
+}
+
+.section-head p,
+.case-template p {
+  line-height: 1.72;
+}
+
+.osint-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  align-items: stretch;
+}
+
+.graph-stage {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 10, 0.18), rgba(5, 7, 10, 0.5)),
+    radial-gradient(circle at 68% 26%, rgba(126, 137, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 22% 72%, rgba(156, 242, 214, 0.12), transparent 26%),
+    var(--surface-strong);
+}
+
+.graph-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, #000, transparent 74%);
+}
+
+.case-graph {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.graph-link {
+  fill: none;
+  stroke: rgba(156, 242, 214, 0.62);
+  stroke-width: 1.7;
+}
+
+.graph-link--gold {
+  stroke: rgba(255, 210, 120, 0.72);
+}
+
+.graph-link--blue {
+  stroke: rgba(126, 137, 255, 0.74);
+}
+
+.graph-node circle {
+  fill: var(--accent);
+  stroke: rgba(255, 255, 255, 0.74);
+  stroke-width: 2;
+  filter: url("#nodeGlow");
+}
+
+.graph-node--gold circle {
+  fill: var(--accent-3);
+}
+
+.graph-node--subject circle {
+  fill: #f0b65d;
+}
+
+.graph-node text {
+  fill: var(--text);
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: rgba(6, 7, 10, 0.75);
+  stroke-width: 4px;
+}
+
+.case-board {
+  grid-template-columns: 1fr;
+}
+
+.case-card {
+  padding: 18px 20px;
+}
+
+.case-card span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: rgba(156, 242, 214, 0.12);
+  color: var(--accent);
+  font-family: "Unbounded", sans-serif;
+  font-size: 0.78rem;
+}
+
+.case-card strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.case-card p {
+  line-height: 1.64;
+}
+
+.case-template {
+  margin-top: 16px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.22fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.case-template pre {
+  margin: 0;
+  min-width: 0;
+  overflow: auto;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(3, 5, 8, 0.58);
+}
+
+.case-template code {
+  color: var(--text);
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
 .premium-footer {
   margin-top: 24px;
   display: flex;
@@ -608,7 +772,9 @@ h2 {
 @media (max-width: 980px) {
   .hero-grid,
   .link-grid,
-  .floating-band {
+  .floating-band,
+  .osint-layout,
+  .case-template {
     grid-template-columns: 1fr;
   }
 
@@ -652,6 +818,7 @@ h2 {
   .hero-panel,
   .floating-band,
   .link-grid,
+  .osint-section,
   .premium-footer {
     width: 100%;
     margin-inline: auto;
